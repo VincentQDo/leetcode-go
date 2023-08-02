@@ -20,7 +20,7 @@ func main() {
 	}
 
 	for _, value := range testCases {
-		fmt.Println(twoSumBrute(value["input"], value["target"][0]))
+		fmt.Println(twoSumMap(value["input"], value["target"][0]))
 	}
 }
 
@@ -32,6 +32,21 @@ func twoSumBrute(arr []int, target int) []int {
 			result := []int{index, resultIndex}
 			sort.Ints(result)
 			return result
+		}
+	}
+	return []int{}
+}
+
+func twoSumMap(arr []int, target int) []int {
+	var compliment int
+	complimentMap := map[int]int{}
+	for i, v := range arr {
+		compliment = target - v
+		_, ok := complimentMap[compliment]
+		if ok {
+			return []int{complimentMap[compliment], i}
+		} else {
+			complimentMap[v] = i
 		}
 	}
 	return []int{}

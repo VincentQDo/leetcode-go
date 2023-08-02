@@ -22,7 +22,7 @@ func TestTwoSumBrute(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		got := twoSumBrute(tc.arr, tc.target)
+		got := twoSumMap(tc.arr, tc.target)
 		if !reflect.DeepEqual(got, tc.want) {
 			t.Errorf("twoSumBrute(%v, %v) = %v; want %v", tc.arr, tc.target, got, tc.want)
 		}
